@@ -73,6 +73,12 @@ struct magic {
 	   (mg)->mg_flags &= ~MGf_BYTES))
 #endif
 
+/*
+=for apidoc whichsig
+This is a synonym for C<L</whichsig_pv>>.
+
+=cut
+*/
 #define whichsig(pv) whichsig_pv(pv)
 
 /*

@@ -3303,6 +3303,14 @@ Perl_magic_set(pTHX_ SV *sv, MAGIC *mg)
     return 0;
 }
 
+/*
+=for apidoc whichsig_sv
+Convert the signal name stored in the PV of C<sigsv> into the signal number
+that corresponds to it; returns -1 if the name could not be found.
+
+=cut
+*/
+
 I32
 Perl_whichsig_sv(pTHX_ SV *sigsv)
 {
@@ -3313,6 +3321,15 @@ Perl_whichsig_sv(pTHX_ SV *sigsv)
     return whichsig_pvn(sigpv, siglen);
 }
 
+/*
+=for apidoc whichsig_pv
+Convert the signal name in the NUL-terminated string starting at C<sig> into
+the signal number that corresponds to it; returns -1 if the name could not be
+found.
+
+=cut
+*/
+
 I32
 Perl_whichsig_pv(pTHX_ const char *sig)
 {
@@ -3320,6 +3337,14 @@ Perl_whichsig_pv(pTHX_ const char *sig)
     return whichsig_pvn(sig, strlen(sig));
 }
 
+/*
+=for apidoc whichsig_pvn
+Convert the signal name in the string starting at C<sig> with length C<len>
+bytes into the signal number that corresponds to it; returns -1 if the name
+could not be found.
+
+=cut
+*/
 I32
 Perl_whichsig_pvn(pTHX_ const char *sig, STRLEN len)
 {
